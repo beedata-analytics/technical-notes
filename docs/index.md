@@ -1,13 +1,15 @@
-# Welcome to Beedata Analytics technical recipes
+# Welcome to Beedata Analytics technical notes
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
+## How to add a note
+
+* Create a new `.md` file on `docs` directory
+
 ## Commands
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
 * `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+* `mkdocs gh-deploy` - Deploy documentation to [https://beedata-analytics.github.io/technical-notes/](https://beedata-analytics.github.io/technical-notes/).
 
 ## Project layout
 
