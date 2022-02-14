@@ -1,4 +1,4 @@
-# How to extract 7z file in Linux
+# Extract 7z file in Linux
 
 1. Install p7zip
 

@@ -1,4 +1,4 @@
-# How to check region consistency and table integrity problems on HBase
+# Check region consistency and table integrity problems on HBase
 
 HBaseFsck (hbck) is a tool for checking for region consistency and table integrity problems and repairing a corrupted HBase. It works in two basic modes — a read-only inconsistency identifying mode and a multi-phase read-write repair mode.
 
