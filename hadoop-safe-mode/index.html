@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Output a brief report on the overall HDFS filesystem - Beedata Analytics technical recipes</title>
+  <title>How to leave Hadoop safe mode - Beedata Analytics technical recipes</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Output a brief report on the overall HDFS filesystem";
-    var mkdocs_page_input_path = "output-a-brief-report-on-the-overall-hdfs-filesystem.md";
+    var mkdocs_page_name = "How to leave Hadoop safe mode";
+    var mkdocs_page_input_path = "hadoop-safe-mode.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -74,14 +74,14 @@
                     <li class="toctree-l1"><a class="reference internal" href="../find-all-files-containing-specific-text-on-linux/">Find all files containing specific text on Linux</a>
                     </li>
                 </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../hadoop-safe-mode/">How to leave Hadoop safe mode</a>
-                    </li>
-                </ul>
                 <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Output a brief report on the overall HDFS filesystem</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">How to leave Hadoop safe mode</a>
     <ul class="current">
     </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../output-a-brief-report-on-the-overall-hdfs-filesystem/">Output a brief report on the overall HDFS filesystem</a>
                     </li>
                 </ul>
       </div>
@@ -105,7 +105,7 @@
     
       
     
-    <li>Output a brief report on the overall HDFS filesystem</li>
+    <li>How to leave Hadoop safe mode</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -117,9 +117,19 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="output-a-brief-report-on-the-overall-hdfs-filesystem">Output a brief report on the overall HDFS filesystem</h1>
-<p><strong><code>hdfs dfsadmin -report</code></strong> outputs a brief report on the overall HDFS filesystem. It’s a useful command to quickly view how much disk is available, how many DataNodes are running, corrupted blocks etc.</p>
-<pre><code class="language-bash">sudo -u hdfs hdfs dfsadmin -report
+                <h1 id="how-to-leave-hadoop-safe-mode">How to leave Hadoop safe mode</h1>
+<p>The Hadoop cluster enters safe mode during the name node startup till the basic indicators are met and later in case of emergency, which means that the cluster enters read-only mode.</p>
+<p>The client will immediately notice that the name node is in safe mode.</p>
+<pre><code>$ hdfs dfs -copyFromLocal -f /var/log/syslog /logs/backup/
+copyFromLocal: Cannot create file/logs/backup/syslog._COPYING_. Name node is in safe mode.
+</code></pre>
+<p>Determine current <code>safe mode</code> status.</p>
+<pre><code>$ hdfs dfsadmin -safemode get
+Safe mode is ON
+</code></pre>
+<p>Disable <code>safe mode</code>.</p>
+<pre><code>$ hdfs dfsadmin -safemode leave
+Safe mode is OFF
 </code></pre>
               
             </div>
@@ -128,8 +138,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../output-a-brief-report-on-the-overall-hdfs-filesystem/" class="btn btn-neutral float-right" title="Output a brief report on the overall HDFS filesystem">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-        <a href="../hadoop-safe-mode/" class="btn btn-neutral" title="How to leave Hadoop safe mode"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+        <a href="../find-all-files-containing-specific-text-on-linux/" class="btn btn-neutral" title="Find all files containing specific text on Linux"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -155,8 +167,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../hadoop-safe-mode/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../find-all-files-containing-specific-text-on-linux/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
+    
+      <span><a href="../output-a-brief-report-on-the-overall-hdfs-filesystem/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
