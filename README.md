@@ -1,6 +1,6 @@
 # Welcome to Beedata Analytics technical notes
 
-For full documentation visit [mkdocs.org](mkdocs.org).
+For full documentation visit [mkdocs.org](https://www.mkdocs.org/).
 
 ## How to add a note:
 
