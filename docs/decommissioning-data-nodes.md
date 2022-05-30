@@ -9,4 +9,4 @@ Decommissioning process of the data node ensures that data is transferred to oth
 
 ## Run refreshNodes command
 
-    $ sudo -u hdfs hdfs dfs -refreshNodes
+    $ sudo -u hdfs hdfs dfsadmin -refreshNodes
